@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY 3DCG</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #111;
+      font-family: sans-serif;
+      color: #fff;
+    }
+    .main-title {
+      text-align: center;
+      font-size: 2em;
+      margin: 1em 0 0.5em;
+      color: #fff;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+      padding: 2em;
+    }
+    .item {
+      text-align: center;
+    }
+    .thumbnail {
+      width: 350px;
+      height: 350px;
+      object-fit: cover;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+    .label {
+      margin-top: 0.5em;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      overflow: hidden;
+      cursor: grab;
+    }
+    .modal img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      max-width: 100%;
+      max-height: 100%;
+      transform: translate(-50%, -50%) scale(1);
+      transition: transform 0.05s linear;
+      user-select: none;
+      pointer-events: auto;
+      cursor: grab;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="main-title">MY 3DCG</h1>
+
+  <div class="gallery">
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/fx75854hfrjh8hgbkg8s3/3D_0001-01.jpg?rlkey=ko8vgecpttw5477zuoqtms5ev&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0001-01.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/3p2j1z7i0431vekcejmud/3D_0001-02.jpg?rlkey=ccxl3ref8wxk9luju0wqsu9rb&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0001-02.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/faucxwxp4sojucebvk62k/3D_0003-01.jpg?rlkey=9stbqbru60md34tg23clfsb78&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0003-01.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/jajgenwvyjwuwu3501qqr/3D_0003-02.jpg?rlkey=qoau46lquk7jfnyinug1bljim&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0003-02.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/b07ws9yeslfvqate3e9ue/3D_0005-01.jpg?rlkey=aij210oszbkvfqaopmdglg5qj&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0005-01.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/5giybc3nd0f9ye6ity7nc/3D_0005-02.jpg?rlkey=0w8dhrtweemdm1i7px1k4496i&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0005-02.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/n7tj1vf2ta065bpczdfxa/3D_0006-01.jpg?rlkey=eebqj21b3kdgdlqrvoedcv0ct&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0006-01.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/vmx27709t6j38fema9eyq/3D_0001-03.jpg?rlkey=zrd4v0395q4h1inu1ksp8hbcn&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0001-03.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/rdtf2fw3famr6a2n9ibuh/3D_0013-01.jpg?rlkey=l5002xqb64bjc3vj3ag5228jr&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0013-01.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/zoibjrqq74zriziyaqkqx/3D_0000-01.jpg?rlkey=c9yxhu73y72zixquw4zisxifc&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0000-01.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/b7tznnhjmlj0z2q8j2g8m/3D_0002-01.jpg?rlkey=ohrfzzoc9d94ayxni9vel2vdw&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0002-01.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/1jbl3xdy9h8hpzr554hz1/3D_0002-02.jpg?rlkey=rkn9sqw3yd8ehtmgld4zhdoyy&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0002-02.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/3sutrf3ggp93aqwvs1i7l/3D_0002-03.jpg?rlkey=sb3g4i5zj6z0kj92wztuek4u7&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0002-03.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/d9d6bx02gflicay9h8odc/3D_0004-01.jpg?rlkey=u8eip09a56508kv3jkedjzm7r&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0004-01.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/pheihnfnw4s7c5e52h85j/3D_0004-02.jpg?rlkey=8uhfppes2wvdt1ouvohk9h5og&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0004-02.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/7fcg7sfgacmwxarvacug4/3D_0007-01.jpg?rlkey=v3jm7g6f2k98vqt377upspg06&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0007-01.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/qyk8mym5qrgtqrgm7fmdr/3D_0008-01.jpg?rlkey=udzy8gn0xhzj9omsld4w0cojx&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0008-01.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/0e9icdjx4ibv0i7c91e6j/3D_0009-01.jpg?rlkey=vvp9tph81fovu6yidyz9572f5&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0009-01.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/y6tto0ipl9c7826t3wzyy/3D_0009-02.jpg?rlkey=rcab9limmkb86sdlkd0ofqyyi&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0009-02.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/evsgkbmw0ap1gslbdn7bi/3D_0009-03.jpg?rlkey=mfaehxjj098n9lhrfni5hcy94&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0009-03.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/kqhjeyw5cptq2grmln8sr/3D_0009-04.jpg?rlkey=n06jclvruz1zflvtk9it32f35&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0009-04.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/7y6lf6tfjq42rs83xkyf7/3D_0010-01.jpg?rlkey=57xk0wk75hkmwqf3ro8bpa906&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0010-01.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/aosqo7hc2c79l6qogodp0/3D_0010-02.jpg?rlkey=gkmpmofjnynl71olzjtddy3pd&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0010-02.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/45sntspdb6yjkgldz8znt/3D_0011-01.jpg?rlkey=qe40upof4apnf1ch8kg0achxl&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0011-01.jpg</div>
+</div>
+
+<div class="item">
+  <img class="thumbnail"
+       src="https://www.dropbox.com/scl/fi/hci7xd8b0bzb914btmzc8/3D_0012-01.jpg?rlkey=q67z7hwae6mj9lnwy6mhgd1za&raw=1"
+       onclick="openModal(this.src)">
+  <div class="label">3D_0012-01.jpg</div>
+</div>
+</div><!-- リンクの貼り付けはここまで -->
+
+  <div id="modal" class="modal">
+    <img id="modal-img" src="" onclick="handleClick(event)" draggable="false">
+  </div>
+
+  <script>
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+
+    let zoom = 1;
+    let offsetX = 0;
+    let offsetY = 0;
+    let isDragging = false;
+    let isClick = true;
+    let dragStartX = 0;
+    let dragStartY = 0;
+
+    function openModal(src) {
+      modal.style.display = "block";
+      modalImg.src = src;
+      zoom = 1;
+      offsetX = 0;
+      offsetY = 0;
+      updateTransform();
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+      modalImg.src = "";
+    }
+
+    function handleClick(e) {
+      if (isClick) closeModal();
+    }
+
+    function updateTransform() {
+      modalImg.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) scale(${zoom})`;
+    }
+
+    modalImg.addEventListener("wheel", function (event) {
+      event.preventDefault();
+      const delta = event.deltaY > 0 ? -0.1 : 0.1;
+      zoom = Math.min(Math.max(zoom + delta, 0.5), 5);
+      updateTransform();
+    });
+
+    modalImg.addEventListener("dragstart", function(e) {
+      e.preventDefault();
+    });
+
+    modal.addEventListener("mousedown", function(e) {
+      if (e.button !== 0) return;
+      isDragging = true;
+      isClick = true;
+      dragStartX = e.clientX;
+      dragStartY = e.clientY;
+      modal.style.cursor = "grabbing";
+    });
+
+    modal.addEventListener("mousemove", function(e) {
+      if (!isDragging) return;
+      const dx = e.clientX - dragStartX;
+      const dy = e.clientY - dragStartY;
+
+      if (Math.abs(dx) > 2 || Math.abs(dy) > 2) {
+        isClick = false;
+      }
+
+      offsetX += dx;
+      offsetY += dy;
+      dragStartX = e.clientX;
+      dragStartY = e.clientY;
+      updateTransform();
+    });
+
+    modal.addEventListener("mouseup", function(e) {
+      if (e.button !== 0) return;
+      isDragging = false;
+      modal.style.cursor = "grab";
+    });
+  </script>
+</body>
+</html>
